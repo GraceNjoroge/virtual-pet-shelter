@@ -3,18 +3,26 @@ package balsamFunHouse;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class VirtualPetShelter {
 
 	Map<String, VirtualPet> virtualPets = new HashMap<String, VirtualPet>();
 
+	private int number = 0;
+
 	public VirtualPet findPet(String petName) {
 		return virtualPets.get(petName);
 	}
 
-	public void namePet(VirtualPet pets) {
-		// TODO Auto-generated method stub
+	public Set<String> petNames() {
 
+		return virtualPets.keySet();
+
+	}
+
+	public int getNumber() {
+		return number;
 	}
 
 	public Collection<VirtualPet> getAllPets() {
@@ -23,6 +31,7 @@ public class VirtualPetShelter {
 
 	public void addVirtualPet(VirtualPet pet) {
 		virtualPets.put(pet.getPetName(), pet);
+		number++;
 
 	}
 
@@ -33,6 +42,7 @@ public class VirtualPetShelter {
 
 	public void adoptVirtualPet(VirtualPet pet1) {
 		virtualPets.remove(pet1.getPetName());
+		number--;
 
 	}
 
@@ -55,19 +65,16 @@ public class VirtualPetShelter {
 		}
 	}
 
-	public void feedAll(Collection<VirtualPet> allPets, int quantity) {
-		for (VirtualPet pet : allPets) {
-			pet.feed(quantity);
+	public void feedAll() {
+		for (VirtualPet pet : virtualPets.values()) {
+			pet.feed(10);
 		}
+
 	}
 
-	public void feedPets(VirtualPet pets) {
-		// TODO Auto-generated method stub
-	}
-
-	public void waterAll(Collection<VirtualPet> allPets, int volume) {
-		for (VirtualPet pet : allPets) {
-			pet.water(volume);
+	public void waterAll() {
+		for (VirtualPet pet : virtualPets.values()) {
+			pet.water(5);
 
 		}
 	}
@@ -76,13 +83,9 @@ public class VirtualPetShelter {
 		virtualPets.get(petName).play(value);
 	}
 
-	public void waterPets(VirtualPet pets) {
-		// TODO Auto-generated method stub
+	public void updateAllTick() {
 
-	}
-
-	public void updateAllTick(Collection<VirtualPet> allPets) {
-		for (VirtualPet pet : allPets) {
+		for (VirtualPet pet : virtualPets.values()) {
 			pet.tick();
 		}
 	}

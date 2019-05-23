@@ -30,6 +30,7 @@ public class PetShelterTest {
 		// Act
 		underTest.addVirtualPet(pet1);
 		VirtualPet retrievedPet = underTest.findPet("Twinkle");
+		//Assert
 		assertThat(retrievedPet, is(pet1));
 
 	}
@@ -47,16 +48,19 @@ public class PetShelterTest {
 	@Test
 	public void shouldAdoptAPet() {
 		// Act
+		underTest.addVirtualPet(pet1);
+		underTest.addVirtualPet(pet2);
 		underTest.adoptVirtualPet(pet1);
-		underTest.adoptVirtualPet(pet1);
-		VirtualPet retrievedPet = underTest.findPet(pet1.getPetName());
+		//Assert
+		assertEquals(1, underTest.getNumber());
 	}
 
 	@Test
 	public void shouldReturnPetNumberInShelter() {
-		VirtualPet underTest = new VirtualPet("Joey", 83, 34, 23, "");
-		int number = underTest.getNumber();
-		assertEquals(2, number);
+		VirtualPetShelter underTest = new VirtualPetShelter();
+	int number = underTest.getNumber(); 
+	//Assert
+		assertEquals(0, number);
 	}
 
 	public void shouldFeedAllPets() {
@@ -65,7 +69,7 @@ public class PetShelterTest {
 		underTest.addVirtualPet(pet2);
 		Collection<VirtualPet> allPets = underTest.getAllPets();
 		int pet1HungerLevelStart = pet1.getHunger();
-		underTest.feedAll(allPets, 1);
+		underTest.feedAll();
 		int pet1HungerLevelEnd = pet1.getHunger();
 		// Assert
 		assertEquals(pet1HungerLevelEnd, pet1HungerLevelStart - 1);
@@ -77,10 +81,10 @@ public class PetShelterTest {
 		underTest.addVirtualPet(pet2);
 		Collection<VirtualPet> allPets = underTest.getAllPets();
 		int pet1ThirstLevelStart = pet1.getThirst();
-		underTest.waterAll(allPets, 3);
-		int pet1HungerLevelEnd = pet1.getThirst();
+		underTest.waterAll();
+		int pet1ThirstLevelEnd = pet1.getThirst();
 		// Assert
-		assertEquals(pet1HungerLevelEnd, pet1ThirstLevelStart - 3);
+		assertEquals(pet1ThirstLevelEnd, pet1ThirstLevelStart - 3);
 	}
 
 	public void shouldPlaywithOnePetInSheltertoBoredomLevel2() {

@@ -131,9 +131,9 @@ public class VirtualPet {
 		if (this.isTired()) {
 			feelingTired = " Sleep time";
 		}
-   String petStatus = feelingHungry + feelingThirsty + feelingBored + feelingTired;
-	
-	return petStatus;
+		String petStatus = feelingHungry + feelingThirsty + feelingBored + feelingTired;
+
+		return petStatus;
 	}
 
 	// tick generator
@@ -164,5 +164,6 @@ public class VirtualPet {
 		{
 			return true;
 		}
-	
-}}
+
+	}
+}

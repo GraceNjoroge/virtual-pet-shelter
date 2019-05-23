@@ -7,10 +7,8 @@ public class VirtualPetShelterApp {
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
-		VirtualPet pets = new VirtualPet("Joey", 83, 34, 23, " ");
+	
 		VirtualPetShelter shelterPets = new VirtualPetShelter();
-		shelterPets.addVirtualPet(pets);
-		VirtualPet oldPet = new VirtualPet("Johnny", 69, 49, 2, "");
 
 		System.out.println("Thank you for Volunteering at Balsam's funhouse Virtual Pet Shelter");
 
@@ -38,29 +36,29 @@ public class VirtualPetShelterApp {
 		switch (response) {
 
 		case "1":
-			shelterPets.callTick(pets);
-			shelterPets.feedPets(pets);
+			shelterPets.updateAllTick();
+			shelterPets.feedAll();
 			System.out.println("The bellies are filling ");
 			break;
 
 		case "2":
-			shelterPets.callTick(pets);
-			shelterPets.waterPets(pets);
+			shelterPets.updateAllTick();
+			shelterPets.waterAll();
 			System.out.println("No more thirst");
 			break;
 
 		case "3":
-			shelterPets.callTick(pets);
+			shelterPets.updateAllTick();
 			System.out.println("Okay, so you'd like to play with a pet. Please choose one:");
-			shelterPets.namePet(pets);
+			shelterPets.petNames();
 			String chosenPet = input.next();
 			VirtualPet playPet = shelterPets.getPetNamed(chosenPet);
 			System.out.println("you play with" + chosenPet);
 			break;
 
 		case "4":
-			shelterPets.callTick(pets);
-			shelterPets.showPetDescription(pets);
+			shelterPets.updateAllTick();
+			shelterPets.petNames();
 			System.out.println("Which pet would you like to adopt?");
 			String petForAdoption = input.next();
 			shelterPets.removePet(petForAdoption);
@@ -68,10 +66,11 @@ public class VirtualPetShelterApp {
 			break;
 
 		case "5":
-			shelterPets.callTick(pets);
+			shelterPets.updateAllTick();
 			System.out.println("Who is this new pet?");
 			String homelessPetName = input.next();
-			VirtualPet homelessPet = new VirtualPet("Johnny", 69, 49, 2, "");
+			VirtualPet homelessPet = new VirtualPet(homelessPetName, 69, 49, 2, "");
+			shelterPets.addVirtualPet(homelessPet);
 			System.out.println("Welcome to Balsam Fun House");
 			break;
 
