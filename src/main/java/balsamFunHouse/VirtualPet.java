@@ -3,7 +3,9 @@ package balsamFunHouse;
 import java.util.Random;
 
 public class VirtualPet {
-
+	
+	private Random generator = new Random();
+	
 	private String name;
 	private int hunger;
 	private int thirst;
@@ -12,7 +14,7 @@ public class VirtualPet {
 	private int sleep;
 	private String description;
 
-	public VirtualPet(String name, int hunger, int thirst, int boredom, String description) {
+	public VirtualPet(String name, int thirst, int boredom, int hunger, String description) {
 		this.name = name;
 		hunger = 5;
 		thirst = 13;
@@ -132,7 +134,6 @@ public class VirtualPet {
 			feelingTired = " Sleep time";
 		}
 		String petStatus = feelingHungry + feelingThirsty + feelingBored + feelingTired;
-
 		return petStatus;
 	}
 
@@ -145,8 +146,7 @@ public class VirtualPet {
 	}
 
 	private int generateRandom() {
-		// TODO Auto-generated method stub
-		return 0;
+		return generator.nextInt(10);
 	}
 
 	// tick reset
@@ -166,4 +166,7 @@ public class VirtualPet {
 		}
 
 	}
-}
+
+
+	}
+

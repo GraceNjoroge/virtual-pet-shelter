@@ -1,5 +1,6 @@
 package balsamFunHouse;
-
+//import java.util.HashMap;
+//import java.util.Map;
 import java.util.Scanner;
 
 public class VirtualPetShelterApp {
@@ -9,6 +10,16 @@ public class VirtualPetShelterApp {
 		Scanner input = new Scanner(System.in);
 	
 		VirtualPetShelter shelterPets = new VirtualPetShelter();
+		
+		VirtualPet pet1 = new VirtualPet ("Joey", 83, 34, 23,"looks like he's seen beter days");
+		VirtualPet pet2 = new VirtualPet ("Johnny", 69, 49, 2, "is a bit nervous");
+		VirtualPet pet3 = new VirtualPet( "Dee Dee", 39, 18, 88, "didn't start with that many legs");
+		VirtualPet pet4 = new VirtualPet("Tommy", 59, 19, 37, "smells like a stargazer lilly");
+		
+		shelterPets.addVirtualPet(pet1);
+		shelterPets.addVirtualPet(pet2);
+		shelterPets.addVirtualPet(pet3);
+		shelterPets.addVirtualPet(pet4);
 
 		System.out.println("Thank you for Volunteering at Balsam's funhouse Virtual Pet Shelter");
 
@@ -28,8 +39,8 @@ public class VirtualPetShelterApp {
 		System.out.println("1. Feed the pets?");
 		System.out.println("2. Water the pets?");
 		System.out.println("3. Play with a pet?");
-		System.out.println("Adopt a pet?");
-		System.out.println("Quit?");
+		System.out.println("4. Adopt a pet?");
+		System.out.println("5. Quit?");
 
 		String response = input.nextLine();
 
@@ -53,7 +64,7 @@ public class VirtualPetShelterApp {
 			shelterPets.petNames();
 			String chosenPet = input.next();
 			VirtualPet playPet = shelterPets.getPetNamed(chosenPet);
-			System.out.println("you play with" + chosenPet);
+			System.out.println("you play with " + chosenPet);
 			break;
 
 		case "4":
@@ -69,12 +80,17 @@ public class VirtualPetShelterApp {
 			shelterPets.updateAllTick();
 			System.out.println("Who is this new pet?");
 			String homelessPetName = input.next();
+			input.nextLine();
 			VirtualPet homelessPet = new VirtualPet(homelessPetName, 69, 49, 2, "");
 			shelterPets.addVirtualPet(homelessPet);
-			System.out.println("Welcome to Balsam Fun House");
+			System.out.println("Welcome to Balsam Fun House" + homelessPetName);
+			input.nextLine();
 			break;
 
 		}
+		
+	//set up a menu option that allows the user to call the status of the pets levels. (Case 6).  
+		
 		input.close();
 	}
 }

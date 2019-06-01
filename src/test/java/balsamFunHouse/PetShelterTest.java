@@ -51,16 +51,19 @@ public class PetShelterTest {
 		underTest.addVirtualPet(pet1);
 		underTest.addVirtualPet(pet2);
 		underTest.adoptVirtualPet(pet1);
+		
 		//Assert
 		assertEquals(1, underTest.getNumber());
+		
 	}
 
 	@Test
 	public void shouldReturnPetNumberInShelter() {
 		VirtualPetShelter underTest = new VirtualPetShelter();
-	int number = underTest.getNumber(); 
+		underTest.addVirtualPet(pet1);
+	    int number = underTest.getNumber(); 
 	//Assert
-		assertEquals(0, number);
+		assertEquals(1, number);
 	}
 
 	public void shouldFeedAllPets() {

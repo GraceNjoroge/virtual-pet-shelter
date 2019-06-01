@@ -90,11 +90,6 @@ public class VirtualPetShelter {
 		}
 	}
 
-	public void callTick(VirtualPet pets) {
-		// TODO Auto-generated method stub
-
-	}
-
 	public void updateAllPetStatus(Collection<VirtualPet> allPets) {
 		for (VirtualPet pet : allPets) {
 			System.out.println("Name \t\t | Hunger \t\t | Thirst \t\t | Bored  ");
